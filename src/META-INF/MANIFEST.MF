@@ -1,2 +1,3 @@
 Manifest-Version: 1.0
-Mainn-Class: tootboot.TootBoot
+Main-Class: tootboot.TootBoot
+SplashScreen-Image: images/wave.png
