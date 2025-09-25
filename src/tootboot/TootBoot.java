@@ -100,8 +100,10 @@ public class TootBoot {
         toolBar.setMargin(new Insets(5, 5, 5, 5));
         toolBar.setFloatable(false);
 
-        JButton refreshButton = this.createButton.execute("images/refresh.png", 16, null, "Refresh");
+        JButton refreshButton = this.createButton.execute("reload.png", 16, null, "Refresh");
         refreshButton.setToolTipText("Refresh");
+
+        toolBar.add(refreshButton);
 
         return toolBar;
     }
