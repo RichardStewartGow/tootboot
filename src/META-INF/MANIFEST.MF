@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: tootboot.TootBoot
-SplashScreen-Image: images/wave.png
+SplashScreen-Image: images/splash.png
+
