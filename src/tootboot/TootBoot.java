@@ -18,8 +18,11 @@ import javax.swing.UIManager;
 
 
 public class TootBoot {
+
+    //@todo proper dep injection
     JFrame mainWindow;
     CreateButton createButton = new CreateButton();
+    AddToToolbar addToToolbar = new AddToToolbar();
 
     public static void main(String[] args) {
 
@@ -103,9 +106,11 @@ public class TootBoot {
         JButton refreshButton = this.createButton.execute("reload.png", 16, null, "Refresh");
         refreshButton.setToolTipText("Refresh");
 
-        toolBar.add(refreshButton);
+        JButton loginButton = this.createButton.execute("login.png", 16, null, "Login");
 
-        return toolBar;
+        JButton[] buttons = {refreshButton, loginButton};
+
+        return this.addToToolbar.execute(toolBar, buttons);
     }
 
     static void handleStartup() {
