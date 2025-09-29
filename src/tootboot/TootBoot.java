@@ -48,7 +48,13 @@ public class TootBoot {
 
         mainWindow = new JFrame("TootBoot");
         GridBagLayout mainLayout = createGridBagLayout();
-        GridBagConstraints mainGBCons = createGridBagConstraintsMain();
+        
+        GridBagConstraints mainGBCons = new GBContraintConfig.GBContraintConfigBuilder()
+                .fill(GridBagConstraints.HORIZONTAL)
+                .gridwidth(GridBagConstraints.REMAINDER)
+                .build()
+                .make();
+        
         mainWindow.setLayout(mainLayout);
 
         
@@ -58,7 +64,14 @@ public class TootBoot {
         mainWindow.add(toolBar);
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
-        GridBagConstraints gbconsSplit = createGridBagContraintsSplit();
+        GridBagConstraints gbconsSplit = new GBContraintConfig.GBContraintConfigBuilder()
+                .fill(GridBagConstraints.BOTH)
+                .gridwidth(GridBagConstraints.REMAINDER)
+                .gridheight(GridBagConstraints.REMAINDER)
+                .weightx(1)
+                .weighty(1)
+                .build()
+                .make();
 
         mainLayout.setConstraints(splitPane, gbconsSplit);
 
@@ -74,28 +87,6 @@ public class TootBoot {
         GridBagLayout gBagLayout = new GridBagLayout();
         
         return gBagLayout;
-    }
-
-    //@todo factory method for window condig
-    private GridBagConstraints createGridBagConstraintsMain() {
-        GridBagConstraints gbcons = new GridBagConstraints();
-
-        gbcons.fill = GridBagConstraints.HORIZONTAL;
-        gbcons.gridwidth = GridBagConstraints.REMAINDER;
-
-
-        return gbcons;
-    }
-
-    private GridBagConstraints createGridBagContraintsSplit() {
-        GridBagConstraints gbcons = new GridBagConstraints();
-        gbcons.gridwidth = GridBagConstraints.REMAINDER;
-        gbcons.gridheight = GridBagConstraints.REMAINDER;
-        gbcons.fill = GridBagConstraints.BOTH;
-        gbcons.weightx = 1;
-        gbcons.weighty = 1;
-
-        return gbcons;
     }
 
     private JToolBar createToolBar() {
